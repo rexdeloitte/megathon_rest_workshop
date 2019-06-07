@@ -1,7 +1,6 @@
 import users from "./users.controller";
 import { isLoggedIn } from "./login.validator";
 
-console.log(isLoggedIn);
 module.exports = (router) => {
   // Restrict route
   router.use("/admin", isLoggedIn);
