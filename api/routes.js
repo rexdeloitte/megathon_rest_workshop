@@ -1,5 +1,5 @@
 import users from "./users.controller";
-import { isLoggedIn } from "./login.validator";
+import { isLoggedIn } from "../services/login.validator";
 
 module.exports = (router) => {
   // Restrict route
