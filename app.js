@@ -19,20 +19,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-// Define routing
-// app.use("/api/", require("./api/routes"));
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Megathon Training 2019!" });
+    res.json({ message: "Welcome to Megathon Training 2019!" });
 });
 
-// --- Create DB connection and pass it to the app object ---
+// Define routing
 require('./api/routes.js')(app);
 
+// --- Create DB connection and pass it to the app object ---
 mongoose.connect(dbconfig.url, {useNewUrlParser: true})
   .catch((err) => console.error(err.stack))
   .then((db) => {
-    // app.locals.db = db;
     app.listen(port, () => {
       console.log(`Node.js app is listening at http://localhost:${port}`);
     });
